@@ -1,0 +1,5 @@
+I:\LinkedList\LinkedList\LinkedList\bin\Release\LinkedList.exe.config
+I:\LinkedList\LinkedList\LinkedList\bin\Release\LinkedList.exe
+I:\LinkedList\LinkedList\LinkedList\bin\Release\LinkedList.pdb
+I:\LinkedList\LinkedList\LinkedList\obj\Release\LinkedList.exe
+I:\LinkedList\LinkedList\LinkedList\obj\Release\LinkedList.pdb
