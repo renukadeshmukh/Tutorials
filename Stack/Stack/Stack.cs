@@ -33,13 +33,13 @@ namespace Stack
             return Top;
         }
 
-        public int Peek()
+        public void Peek()
         {
-            int topVal = -1;
+            
             if (IsEmpty())
                 Console.WriteLine("Stack is empty !");
-            else topVal = Top.Value;
-            return topVal;
+            else Console.WriteLine(Top.Value); ;
+            
         }
 
         public bool IsEmpty()
@@ -47,6 +47,25 @@ namespace Stack
             if (Top == null)
                 return true;
             else return false;
+        }
+
+        public void Begin() {
+           
+            Push(10);
+            Peek();
+            Push(9);
+            Peek();
+            Push(8);
+            Peek();
+            
+            Pop();
+            Peek();
+            Pop();
+            Peek();
+            Pop();
+            Peek();
+            Pop();
+            
         }
     }
 }
