@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stack
+namespace EvaluationOfPostfixExpression
 {
     public class Stack
     {
@@ -30,7 +30,7 @@ namespace Stack
             {
                 Top = Top.Next;
             }
-            return Top;
+            return n;
         }
 
         public void Peek()
