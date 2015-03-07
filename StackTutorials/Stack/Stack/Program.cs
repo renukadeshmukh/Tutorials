@@ -12,7 +12,24 @@ namespace Stack
         {
             Stack s = new Stack();
             s.Begin();
-            Console.ReadLine();
+          
+
+
+
+            //Reverse
+            Stack s1 = new Stack();
+            s1.Push(2);
+            s1.Push(3);
+            s1.Push(4);
+            s1.Push(5);
+            
+            Stack s2 = new Stack();
+
+            Stack rev = s1.Reverse(s2);
+            rev.DisplayStack();
+
+            Console.ReadKey();
+
         }
     }
 }
