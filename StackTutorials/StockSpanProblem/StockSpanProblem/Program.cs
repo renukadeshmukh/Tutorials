@@ -12,6 +12,7 @@ namespace StockSpanProblem
         static void Main(string[] args)
         {
             int[] span =  { 100, 80, 60, 70, 60, 75, 85 };
+            //int[] span = {10, 4, 5, 90, 120, 80};
             int[] counts = new int[span.Length];
 
             Stack<int> s = new Stack<int>();
@@ -31,7 +32,7 @@ namespace StockSpanProblem
                 }
                 else {
                     int cnt = 1;
-                    while (span[s.Peek()] < span[i])
+                    while (s.Peek() != -1 && span[s.Peek()] < span[i] )
                     {
                         int x =s.Pop();
                         cnt+=counts[x];
