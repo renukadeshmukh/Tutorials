@@ -10,19 +10,12 @@ namespace QueueUsingArray
     {
         static void Main(string[] args)
         {
-            Queue q = new Queue();
-            q.Enqueue(4);
-            q.Display();
-            q.Enqueue(5);
-            q.Display();
-            q.Enqueue(6);
-            q.Display();
-            q.Enqueue(7);
-            q.Display();
-            q.Enqueue(8);
-            q.Display();
-            q.Enqueue(9);
-            q.Display();
+            int QueueSizeToKeep = 5;
+            Queue q = new Queue(QueueSizeToKeep);
+            for (int i = 1; i <= QueueSizeToKeep; i++) { 
+                q.Enqueue(i);
+                q.Display();
+            }
 
             Console.WriteLine("\nDequeuing :: ",q.Dequeue());
             q.Display();
@@ -30,18 +23,18 @@ namespace QueueUsingArray
             q.Display();
             Console.WriteLine("\nDequeuing :: ", q.Dequeue());
             q.Display();
-            Console.WriteLine("\nDequeuing :: ", q.Dequeue());
-            q.Display();
-            Console.WriteLine("\nDequeuing :: ", q.Dequeue());
-            q.Display();
-            Console.WriteLine("\nDequeuing :: ", q.Dequeue());
-            q.Display();
-            Console.WriteLine("\nDequeuing :: ", q.Dequeue());
-            q.Display();
-            Console.WriteLine("\nDequeuing :: ", q.Dequeue());
+            q.Enqueue(15);
             q.Display();
 
+            for (int i = 1; i <= QueueSizeToKeep; i++)
+            {
+                q.Enqueue(i+10);
+                q.Display();
+            }
+
+
             Console.ReadKey();
+
         }
     }
 }

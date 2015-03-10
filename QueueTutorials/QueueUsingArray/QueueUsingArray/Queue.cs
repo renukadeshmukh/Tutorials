@@ -8,20 +8,29 @@ namespace QueueUsingArray
 {
     public class Queue
     {
-        int Max = 5;
-        int[] Array = { 0, 0, 0, 0, 0 };
+        int MaxSize;
+        int[] Array;
         int Start;
         int End;
-        int QueueSize = 0;
+        int QueueSize;
+
+        public Queue(int size)
+        {
+            MaxSize = size;
+            Array = new int[MaxSize];
+            Start = End = -1;
+            QueueSize = 0;
+        }
 
         public void Enqueue(int element)
         {
             if (!IsFull())
             {
+                if (Start == -1)
+                    Start++;
                 QueueSize++;
-                End = (End + 1) % Max;
+                End = (End + 1) % MaxSize;
                 Array[End] = element;
-
             }
             else Console.WriteLine("\nQueue is Full !!!! Cannot insert {0}", element);
         }
@@ -33,7 +42,7 @@ namespace QueueUsingArray
                 QueueSize--;
                 int val = Array[Start];
                 Array[Start] = -1;
-                Start = (Start + 1) % Max;
+                Start = (Start + 1) % MaxSize;
                 return val;
             }
             else return -1;
@@ -48,7 +57,7 @@ namespace QueueUsingArray
 
         public bool IsFull()
         {
-            if (QueueSize == Array.Length)
+            if (QueueSize == MaxSize)
                 return true;
             return false;
         }
@@ -57,7 +66,7 @@ namespace QueueUsingArray
         {
             
             Console.Write("\nQueue is :: ");
-            for (int i = 0; i < Max; i++)
+            for (int i = 0; i < MaxSize; i++)
             {
                 Console.Write(Array[i] + " ");
             }
