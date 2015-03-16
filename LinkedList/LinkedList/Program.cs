@@ -28,7 +28,9 @@ namespace LinkedList
             //bool isPalin = sll.IsSLLPalindrome();
             //Console.WriteLine("\nIs the list palindrome :: {0}", isPalin);
 
-            sll.ReversePrint();
+            //sll.ReversePrint();
+
+            sll.RemoveDuplicatesFromLinkedList();
 
             Console.ReadKey();
 
