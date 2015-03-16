@@ -14,8 +14,8 @@ DONE	Write a function to delete a Linked List
 DONE	Write a function that counts the number of times a given int occurs in a Linked List
 DONE	Reverse a linked list
 DONE	Detect loop in a linked list
-TODO	Function to check if a singly linked list is palindrome
-TODO	Given a linked list which is sorted how will you insert in sorted way
+DONE	Function to check if a singly linked list is palindrome
+DONE	Given a linked list which is sorted how will you insert in sorted way
 TODO	Intersection point of two Linked Lists.
 TODO	Recursive function to print reverse of a Linked List
 TODO	Remove duplicates from a sorted linked list
