@@ -153,30 +153,96 @@ namespace LinkedList
             PrintSLL(Head);
             Console.WriteLine("\n");
 
-            InsertToSLLAtEnd(8);
+            //InsertToSLLAtEnd(7);
+            //PrintSLL(Head);
+            //Console.WriteLine("\n");
+
+            InsertToSLLAtEnd(6);
             PrintSLL(Head);
             Console.WriteLine("\n");
 
-            InsertToSLLAtBegin(9);
+            InsertToSLLAtEnd(5);
             PrintSLL(Head);
             Console.WriteLine("\n");
 
-            InsertToSLLAtBegin(10);
-            PrintSLL(Head);
-            Console.WriteLine("\n");
+            //InsertToSLLAtIndex(16, 4);
+            //PrintSLL(Head);
+            //Console.WriteLine("\n");
 
-            InsertToSLLAtIndex(16, 4);
-            PrintSLL(Head);
-            Console.WriteLine("\n");
+            //InsertToSLLAtBegin(11);
+            //PrintSLL(Head);
+            //Console.WriteLine("\n");
 
-            ReverseSLL();
-            PrintSLL(Head);
-            Console.WriteLine("\n");
+        }
 
-            ReverseSLLWithRecursion(Head);
-            Console.WriteLine("Reversing with Recurssion....");
-            PrintSLL(Head);
-            Console.WriteLine("\n");
+        public int GetMiddleElement()
+        {
+            if (Head == null)
+                return -1;
+
+            Node n1 = Head;
+            Node n2 = Head;
+
+            while (n2.getNext() != null && n2.getNext().getNext() != null)
+            {
+                n1 = n1.getNext();
+                n2 = n2.getNext().getNext();
+            }
+
+            return n1.getValue();
+        }
+
+        public int GetNthFromEnd(int n)
+        {
+            if (Head == null)
+                return -1;
+
+            Node n1 = Head;
+            Node n2 = Head;
+
+            int cnt = 1;
+            while (n1.getNext() != null && cnt != n) {
+                n1 = n1.getNext();
+                cnt++;
+            }
+            if (n1.getNext() == null && cnt != n)
+                return -1;
+
+            while(n1.getNext() != null)
+            {
+                n1 = n1.getNext();
+                n2 = n2.getNext();
+            }
+            return n2.getValue();
+        }
+
+        public bool IsSLLPalindrome() {
+            if (Head == null)
+                return false;
+
+            Node n1 = Head;
+            Node n2 = Head;
+            SinglyLinkedList n3 = new SinglyLinkedList();
+
+            while (n2.getNext() != null && n2.getNext().getNext() != null)
+            {
+                n3.InsertToSLLAtBegin(n1.getValue());
+                n1 = n1.getNext();
+                n2 = n2.getNext().getNext();
+            }
+           
+            if (n2.getNext() != null && n2.getNext().getNext() == null)
+                n3.InsertToSLLAtBegin(n1.getValue());
+            
+            n1 = n1.getNext();
+            while (n1!= null && n3.Head != null)
+            {
+                if (n3.Head.getValue() != n1.getValue())
+                    return false;
+                n3.Head = n3.Head.getNext();
+                n1 = n1.getNext();
+            }
+            return true;
         }
 
     }

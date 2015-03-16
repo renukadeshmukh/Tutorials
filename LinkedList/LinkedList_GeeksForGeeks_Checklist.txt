@@ -1,4 +1,4 @@
-Linked List from geeksforgeeks.com
+﻿Linked List from geeksforgeeks.com
 
 DONE	Introduction to Linked List
 DONE	Linked List vs Array
@@ -8,8 +8,8 @@ DONE	Linked List Deletion
 		How to write C functions that modify head pointer of a Linked List?
 DONE	Write a function to get Nth node in a Linked List
 DONE	Given only a pointer to a node to be deleted in a singly linked list how do you delete it?
-TODO	Print the middle of a given linked list
-TODO	Nth node from the end of a Linked List
+DONE	Print the middle of a given linked list
+DONE	Nth node from the end of a Linked List
 DONE	Write a function to delete a Linked List
 DONE	Write a function that counts the number of times a given int occurs in a Linked List
 DONE	Reverse a linked list

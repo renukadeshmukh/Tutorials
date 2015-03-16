@@ -16,3 +16,6 @@ G:\GitHub\CodeBase\Programs\Tutorials\LinkedList\LinkedList\obj\Debug\LinkedList
 G:\GitHub\Tutorials\LinkedList\LinkedList\bin\Debug\LinkedList.exe.config
 G:\GitHub\Tutorials\LinkedList\LinkedList\obj\Debug\LinkedList.exe
 G:\GitHub\Tutorials\LinkedList\LinkedList\obj\Debug\LinkedList.pdb
+G:\GitHub\Tutorials\LinkedList\LinkedList\bin\Debug\LinkedList.exe
+G:\GitHub\Tutorials\LinkedList\LinkedList\bin\Debug\LinkedList.pdb
+G:\GitHub\Tutorials\LinkedList\LinkedList\obj\Debug\LinkedList.csprojResolveAssemblyReference.cache
