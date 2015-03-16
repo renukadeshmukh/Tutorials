@@ -157,11 +157,11 @@ namespace LinkedList
             //PrintSLL(Head);
             //Console.WriteLine("\n");
 
-            InsertToSLLAtEnd(6);
+            InsertToSLLAtEnd(8);
             PrintSLL(Head);
             Console.WriteLine("\n");
 
-            InsertToSLLAtEnd(5);
+            InsertToSLLAtEnd(9);
             PrintSLL(Head);
             Console.WriteLine("\n");
 
@@ -243,6 +243,23 @@ namespace LinkedList
                 n1 = n1.getNext();
             }
             return true;
+        }
+
+        public void ReversePrint() {
+            Console.Write("\n\nRecursive Reverse is :: ");
+            RecursiveReversePrint(Head);
+            Console.Write("null");
+            
+        }
+
+        public void RecursiveReversePrint(Node n)
+        {
+            if (n == null)
+                return;
+            else {
+                RecursiveReversePrint(n.getNext());
+                Console.Write(n.getValue() + "-->");
+            }
         }
 
     }

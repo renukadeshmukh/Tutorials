@@ -16,7 +16,7 @@ DONE	Reverse a linked list
 DONE	Detect loop in a linked list
 DONE	Function to check if a singly linked list is palindrome
 DONE	Given a linked list which is sorted how will you insert in sorted way
-TODO	Intersection point of two Linked Lists.
+DONE    Intersection point of two Linked Lists.
 TODO	Recursive function to print reverse of a Linked List
 TODO	Remove duplicates from a sorted linked list
 TODO	Remove duplicates from an unsorted linked list
