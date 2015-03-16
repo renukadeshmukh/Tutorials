@@ -11,7 +11,7 @@ namespace LinkedList
         static void Main(string[] args)
         {
             SinglyLinkedList sll = new SinglyLinkedList();
-            sll.CreateSLL();
+            //sll.CreateSLL();
 
             //int midElement = sll.GetMiddleElement();
             //Console.WriteLine("Middle Element is :: {0}", midElement);
@@ -30,8 +30,10 @@ namespace LinkedList
 
             //sll.ReversePrint();
 
-            sll.RemoveDuplicatesFromLinkedList();
+            //sll.RemoveDuplicatesFromLinkedList();
+            //sll.PairwiseSwap();
 
+            sll.IntersectionOfSortedLinkedList();
             Console.ReadKey();
 
         }
