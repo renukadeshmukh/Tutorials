@@ -23,13 +23,13 @@ DONE	Remove duplicates from an unsorted linked list
 DONE    Pairwise swap elements of a given linked list
 DONE	Practice questions for Linked List and Recursion
 DONE	Move last element to front of a given Linked List
-TODO	Intersection of two Sorted Linked Lists
+DONE 	Intersection of two Sorted Linked Lists
 DONE	Delete alternate nodes of a Linked List
 DONE	Alternating split of a given Singly Linked List
 DONE	Merge two sorted linked lists
 DONE	Identical Linked Lists
-DONE Merge Sort for Linked Lists
-TODO	Reverse a Linked List in groups of given size
+DONE 	Merge Sort for Linked Lists
+DONE 	Reverse a Linked List in groups of given size
 Reverse alternate K nodes in a Singly Linked List
 Delete nodes which have a greater value on right side
 DONE 	Segregate even and odd nodes in a Linked List
