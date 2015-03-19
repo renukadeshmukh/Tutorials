@@ -28,25 +28,26 @@ DONE	Delete alternate nodes of a Linked List
 DONE	Alternating split of a given Singly Linked List
 DONE	Merge two sorted linked lists
 DONE	Identical Linked Lists
-DONE 	Merge Sort for Linked Lists
 DONE 	Reverse a Linked List in groups of given size
-Reverse alternate K nodes in a Singly Linked List
-Delete nodes which have a greater value on right side
+DONE 	Reverse alternate K nodes in a Singly Linked List
+
+TODO 	Delete nodes which have a greater value on right side
 DONE 	Segregate even and odd nodes in a Linked List
-TODO	Detect and Remove Loop in a Linked List
-Add two numbers represented by linked lists | Set 1
-Delete a given node in Linked List under given constraints
-Union and Intersection of two Linked Lists
-Find a triplet from three linked lists with sum equal to a given number
-Rotate a Linked List
-Flattening a Linked List
-Add two numbers represented by linked lists | Set 2
-Sort a linked list of 0s 1s and 2s
-Flatten a multilevel linked list
-Delete N nodes after M nodes of a linked list
-QuickSort on Singly Linked List
-Merge a linked list into another linked list at alternate positions
-Pairwise swap elements of a given linked list by changing links
-Given a linked list of line segments remove middle points
-Construct a Maximum Sum Linked List out of two Sorted Linked Lists having some Common nodes
-Can we reverse a linked list in less than O(n)?
+DONE	Detect and Remove Loop in a Linked List
+TODO 	Add two numbers represented by linked lists | Set 1
+SKIP	Delete a given node in Linked List under given constraints
+TODO	Union and Intersection of two Linked Lists
+TODO	Find a triplet from three linked lists with sum equal to a given number
+DONE	Rotate a Linked List
+TODO	Flattening a Linked List
+TODO	Add two numbers represented by linked lists | Set 2
+DONE	Sort a linked list of 0s 1s and 2s
+TODO 	Flatten a multilevel linked list
+TODO	Delete N nodes after M nodes of a linked list
+TODO 	QuickSort on Singly Linked List
+TODO 	Merge a linked list into another linked list at alternate positions
+TODO	Pairwise swap elements of a given linked list by changing links
+TODO	Given a linked list of line segments remove middle points
+TODO !!	Construct a Maximum Sum Linked List out of two Sorted Linked Lists having some Common nodes
+DONE	Can we reverse a linked list in less than O(n)?
+TODO 	Merge Sort for Linked Lists

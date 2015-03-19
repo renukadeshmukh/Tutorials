@@ -12,7 +12,7 @@ namespace LinkedList
 
         public Node InsertToSLLAtEnd(int value)
         {
-            Console.Write("Inserting Node at end ....");
+            //Console.Write("Inserting Node at end ....");
             Node newNode = new Node(value);
 
             if (Head == null)
@@ -30,7 +30,7 @@ namespace LinkedList
 
         public Node InsertToSLLAtBegin(int value)
         {
-            Console.Write("Inserting Node at begin ....");
+            //Console.Write("Inserting Node at begin ....");
             Node newNode = new Node(value);
 
             if (Head == null)
@@ -141,35 +141,17 @@ namespace LinkedList
 
         public void CreateSLL()
         {
-            InsertToSLLAtEnd(5);
+            for (int i = 0; i < 11; i++)
+            {
+                InsertToSLLAtEnd(i);
+            }
             PrintSLL(Head);
-            Console.WriteLine("\n");
 
-            InsertToSLLAtEnd(6);
-            PrintSLL(Head);
-            Console.WriteLine("\n");
-
-            InsertToSLLAtEnd(7);
-            PrintSLL(Head);
-            Console.WriteLine("\n");
-
-            //InsertToSLLAtEnd(7);
+            //InsertToSLLAtIndex(11, 4);
             //PrintSLL(Head);
             //Console.WriteLine("\n");
 
-            InsertToSLLAtEnd(8);
-            PrintSLL(Head);
-            Console.WriteLine("\n");
-
-            InsertToSLLAtEnd(9);
-            PrintSLL(Head);
-            Console.WriteLine("\n");
-
-            //InsertToSLLAtIndex(16, 4);
-            //PrintSLL(Head);
-            //Console.WriteLine("\n");
-
-            //InsertToSLLAtBegin(11);
+            //InsertToSLLAtEnd(5);
             //PrintSLL(Head);
             //Console.WriteLine("\n");
 
@@ -260,6 +242,155 @@ namespace LinkedList
                 RecursiveReversePrint(n.getNext());
                 Console.Write(n.getValue() + "-->");
             }
+        }
+
+        public void RemoveDuplicatesFromLinkedList()
+        {
+            Dictionary<int, int> Values = new Dictionary<int, int>();
+            //if linked list is empty
+            if(Head == null)
+            {
+                Console.WriteLine("LinkedList is Empty !!");
+                return;
+            }
+            
+            Node nextN = Head;
+            Node n = null;
+
+            while (nextN != null)
+            {
+                if (Values.ContainsKey(nextN.getValue()))
+                    n.setNext(nextN.getNext());
+                else
+                {
+                    Values[nextN.getValue()] = nextN.getValue();
+                    n = nextN;
+                }
+                nextN = nextN.getNext();
+            }
+
+            Console.WriteLine("\nAfter removing duplicates :: ");
+            PrintSLL(Head);
+        }
+
+        public void PairwiseSwap()
+        {
+            if(Head == null)
+            {
+                Console.WriteLine("LinkedList is empty !!");
+                return;
+            }
+
+            Node cur = Head;
+            if (cur.getNext() == null)
+                Console.WriteLine("Pairwise Swapped List is :: {0}", cur.getValue());
+            
+            while (cur != null && cur.getNext() != null)
+            {
+                int val = cur.getValue();
+                cur.setValue(cur.getNext().getValue());
+                cur.getNext().setValue(val);
+
+                cur = cur.getNext().getNext();
+
+            }
+
+            Console.WriteLine("\n Pairwise Swapped List is :: ");
+            PrintSLL(Head);
+        }
+
+        public void IntersectionOfSortedLinkedList() {
+            var sll1 = new SinglyLinkedList();
+            sll1.Head = null;
+            var sll2 = new SinglyLinkedList();
+            sll2.Head = null;
+
+            for (int i = 0; i < 10; i++)
+            {
+                sll1.InsertToSLLAtEnd(i);
+                sll2.InsertToSLLAtEnd(i * 2);
+            }
+
+            sll2.InsertToSLLAtEnd(45);
+            Console.WriteLine("\n First Linked List :: ");
+            sll1.PrintSLL(sll1.Head);
+            Console.WriteLine("\n Second Linked List :: ");
+            sll2.PrintSLL(sll2.Head);
+            IntersectionOfSortedLinkedList(sll1.Head, sll2.Head);
+        }
+
+        private void IntersectionOfSortedLinkedList(Node Head1, Node Head2) {
+
+            if (Head1 != null || Head2 != null)
+            {
+                Console.WriteLine("\n One of the given lists is empty");
+                return;
+            }
+
+            SinglyLinkedList sll = new SinglyLinkedList();
+            sll.Head = null;
+
+            while (Head1 != null && Head2!=null)
+            {
+                if (Head1.getValue() == Head2.getValue())
+                {
+                    sll.InsertToSLLAtEnd(Head1.getValue());
+                    Head1 = Head1.getNext();
+                    Head2 = Head2.getNext();
+                }   else if(Head1.getValue()<Head2.getValue())
+                    Head1 = Head1.getNext();
+                else
+                Head2 = Head2.getNext();
+            }
+            Console.WriteLine("\n Intersection of Linked List :: ");
+            PrintSLL(sll.Head);
+        }
+
+       
+
+        public void ReverseInGroupsOfGivenSize(int k)
+        {
+            if (Head == null)
+            {
+                Console.WriteLine("\n Linked lists is empty");
+                return;
+            }
+
+            SinglyLinkedList worker = new SinglyLinkedList() { Head = null };
+            worker.Head = new Node(Head.getValue());
+            SinglyLinkedList master = null;
+
+            Node n = Head.getNext();
+            Node lastNode = null;
+            int cnt = 1;
+            while (n!=null)
+            {
+                 if (cnt == k)
+                {
+                    if (master == null)
+                    {
+                        master = worker;
+                        lastNode = master.Head;
+                    }
+                    else {
+                        lastNode.setNext(worker.Head);
+                    }
+                    cnt = 1;
+                    worker = new SinglyLinkedList() { Head = null };
+                    worker.Head = new Node(n.getValue());
+                    while (lastNode.getNext() != null)
+                        lastNode = lastNode.getNext();
+                }
+                else { 
+                    worker.InsertToSLLAtBegin(n.getValue());
+                    cnt++;
+                }
+                n = n.getNext();
+            }
+            lastNode.setNext(worker.Head);
+            Console.WriteLine("\nReverse in Groups of size {0} is :: ", k);
+            PrintSLL(master.Head);
+
         }
 
     }
