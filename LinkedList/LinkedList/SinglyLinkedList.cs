@@ -141,9 +141,10 @@ namespace LinkedList
 
         public void CreateSLL()
         {
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 1; i++)
             {
                 InsertToSLLAtEnd(i);
+                InsertToSLLAtEnd(i+5);
             }
             PrintSLL(Head);
 
@@ -390,6 +391,35 @@ namespace LinkedList
             lastNode.setNext(worker.Head);
             Console.WriteLine("\nReverse in Groups of size {0} is :: ", k);
             PrintSLL(master.Head);
+
+        }
+
+        public void DeleteSmallerNodesOnLeft() {
+            if (Head == null)
+                Console.WriteLine("LinkedList is Empty !!");
+
+            Node cur = Head;
+            Node prev = null;
+            Node next = cur.getNext();
+
+            while (next !=null)
+            {
+                if (cur.getValue() < next.getValue())
+                {
+                    if (cur == Head)
+                        Head = next;
+                    else
+                        prev.setNext(next);
+                }
+                else {
+                    prev = cur;
+                }
+                cur = next;
+                next = cur.getNext();
+            }
+
+            Console.WriteLine("\n");
+            PrintSLL(Head);
 
         }
 

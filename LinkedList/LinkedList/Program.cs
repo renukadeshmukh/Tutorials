@@ -35,7 +35,9 @@ namespace LinkedList
 
             //sll.IntersectionOfSortedLinkedList();
 
-            sll.ReverseInGroupsOfGivenSize(3);
+           // sll.ReverseInGroupsOfGivenSize(3);
+
+            sll.DeleteSmallerNodesOnLeft();
             Console.ReadKey();
 
         }
