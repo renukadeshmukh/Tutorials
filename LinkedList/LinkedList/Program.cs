@@ -39,7 +39,7 @@ namespace LinkedList
 
             //sll.DeleteSmallerNodesOnLeft();
 
-            sll.AddTwoReversedNumbers();
+            sll.UnionAndIntersection();
             Console.ReadKey();
 
         }

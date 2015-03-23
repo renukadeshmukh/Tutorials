@@ -356,8 +356,6 @@ namespace LinkedList
             PrintSLL(sll.Head);
         }
 
-
-
         public void ReverseInGroupsOfGivenSize(int k)
         {
             if (Head == null)
@@ -493,5 +491,74 @@ namespace LinkedList
 
         }
 
+        public void UnionAndIntersection(){
+            SinglyLinkedList sll1 = new SinglyLinkedList();
+            sll1.InsertToSLLAtEnd(10);
+            sll1.InsertToSLLAtEnd(15);
+            sll1.InsertToSLLAtEnd(4);
+            sll1.InsertToSLLAtEnd(20);
+            Console.WriteLine("\nSLL1 is :: ");
+            PrintSLL(sll1.Head);
+
+            SinglyLinkedList sll2 = new SinglyLinkedList();
+            sll2.InsertToSLLAtEnd(8);
+            sll2.InsertToSLLAtEnd(4);
+            sll2.InsertToSLLAtEnd(2);
+            sll2.InsertToSLLAtEnd(10);
+            Console.WriteLine("\nSLL2 is :: ");
+            PrintSLL(sll2.Head);
+
+            UnionAndIntersection(sll1, sll2);
+
+        }
+
+        public void UnionAndIntersection(SinglyLinkedList sll1 , SinglyLinkedList sll2)
+        {
+            Node n1 = sll1.Head;
+            Node n2 = sll2.Head;
+            SinglyLinkedList unionList = new SinglyLinkedList();
+            SinglyLinkedList intersectionList = new SinglyLinkedList();
+            List<int> positions = new List<int>();
+            
+            while (n1!=null )
+            {
+                int val=n1.getValue();
+                unionList.InsertToSLLAtEnd(val);
+
+                int pos = 0;
+                while (n2!=null)
+                {
+                    pos++;
+                    if (val == n2.getValue())
+                    {
+                        intersectionList.InsertToSLLAtEnd(val);
+                        positions.Add(pos);
+                        break;
+                    }
+                    n2 = n2.getNext();
+                }
+                
+                n2 = sll2.Head;
+                n1 = n1.getNext();
+            }
+
+            n2 = sll2.Head;
+            int pos1 = 0;
+            while (n2!=null)
+            {
+                pos1++;
+                if (!positions.Contains(pos1)) {
+                    unionList.InsertToSLLAtEnd(n2.getValue());
+                }
+                n2 = n2.getNext();
+            }
+
+            Console.WriteLine("\n Union List :: ");
+            PrintSLL(unionList.Head);
+
+            Console.WriteLine("\n Intersection List :: ");
+            PrintSLL(intersectionList.Head);
+
+        }
     }
 }
