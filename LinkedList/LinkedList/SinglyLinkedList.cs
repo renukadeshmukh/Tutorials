@@ -96,26 +96,28 @@ namespace LinkedList
                     Head = Head.getNext();
                     Node prev = new Node(Head.getValue());
                     prev.setNext(temp);
-                   // prev.setValue();
+                    // prev.setValue();
                     temp = prev;
-                    
+
                 }
                 Head = temp;
             }
             return Head;
         }
 
-        public Node ReverseSLLWithRecursion(Node Head) {
+        public Node ReverseSLLWithRecursion(Node Head)
+        {
             Node temp = null;
             if (Head.getNext() == null)
                 return Head;
-            else {
-               
+            else
+            {
+
                 temp = ReverseSLLWithRecursion(Head.getNext());
                 temp.setNext(Head);
                 return temp;
             }
-        
+
         }
 
         public void PrintSLL(Node Head)
@@ -141,10 +143,10 @@ namespace LinkedList
 
         public void CreateSLL()
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 4; i++)
             {
                 InsertToSLLAtEnd(i);
-                InsertToSLLAtEnd(i+5);
+                InsertToSLLAtEnd(i + 5);
             }
             PrintSLL(Head);
 
@@ -184,14 +186,15 @@ namespace LinkedList
             Node n2 = Head;
 
             int cnt = 1;
-            while (n1.getNext() != null && cnt != n) {
+            while (n1.getNext() != null && cnt != n)
+            {
                 n1 = n1.getNext();
                 cnt++;
             }
             if (n1.getNext() == null && cnt != n)
                 return -1;
 
-            while(n1.getNext() != null)
+            while (n1.getNext() != null)
             {
                 n1 = n1.getNext();
                 n2 = n2.getNext();
@@ -199,7 +202,8 @@ namespace LinkedList
             return n2.getValue();
         }
 
-        public bool IsSLLPalindrome() {
+        public bool IsSLLPalindrome()
+        {
             if (Head == null)
                 return false;
 
@@ -213,12 +217,12 @@ namespace LinkedList
                 n1 = n1.getNext();
                 n2 = n2.getNext().getNext();
             }
-           
+
             if (n2.getNext() != null && n2.getNext().getNext() == null)
                 n3.InsertToSLLAtBegin(n1.getValue());
-            
+
             n1 = n1.getNext();
-            while (n1!= null && n3.Head != null)
+            while (n1 != null && n3.Head != null)
             {
                 if (n3.Head.getValue() != n1.getValue())
                     return false;
@@ -228,18 +232,20 @@ namespace LinkedList
             return true;
         }
 
-        public void ReversePrint() {
+        public void ReversePrint()
+        {
             Console.Write("\n\nRecursive Reverse is :: ");
             RecursiveReversePrint(Head);
             Console.Write("null");
-            
+
         }
 
         public void RecursiveReversePrint(Node n)
         {
             if (n == null)
                 return;
-            else {
+            else
+            {
                 RecursiveReversePrint(n.getNext());
                 Console.Write(n.getValue() + "-->");
             }
@@ -249,12 +255,12 @@ namespace LinkedList
         {
             Dictionary<int, int> Values = new Dictionary<int, int>();
             //if linked list is empty
-            if(Head == null)
+            if (Head == null)
             {
                 Console.WriteLine("LinkedList is Empty !!");
                 return;
             }
-            
+
             Node nextN = Head;
             Node n = null;
 
@@ -276,7 +282,7 @@ namespace LinkedList
 
         public void PairwiseSwap()
         {
-            if(Head == null)
+            if (Head == null)
             {
                 Console.WriteLine("LinkedList is empty !!");
                 return;
@@ -285,7 +291,7 @@ namespace LinkedList
             Node cur = Head;
             if (cur.getNext() == null)
                 Console.WriteLine("Pairwise Swapped List is :: {0}", cur.getValue());
-            
+
             while (cur != null && cur.getNext() != null)
             {
                 int val = cur.getValue();
@@ -300,7 +306,8 @@ namespace LinkedList
             PrintSLL(Head);
         }
 
-        public void IntersectionOfSortedLinkedList() {
+        public void IntersectionOfSortedLinkedList()
+        {
             var sll1 = new SinglyLinkedList();
             sll1.Head = null;
             var sll2 = new SinglyLinkedList();
@@ -320,7 +327,8 @@ namespace LinkedList
             IntersectionOfSortedLinkedList(sll1.Head, sll2.Head);
         }
 
-        private void IntersectionOfSortedLinkedList(Node Head1, Node Head2) {
+        private void IntersectionOfSortedLinkedList(Node Head1, Node Head2)
+        {
 
             if (Head1 != null || Head2 != null)
             {
@@ -331,23 +339,24 @@ namespace LinkedList
             SinglyLinkedList sll = new SinglyLinkedList();
             sll.Head = null;
 
-            while (Head1 != null && Head2!=null)
+            while (Head1 != null && Head2 != null)
             {
                 if (Head1.getValue() == Head2.getValue())
                 {
                     sll.InsertToSLLAtEnd(Head1.getValue());
                     Head1 = Head1.getNext();
                     Head2 = Head2.getNext();
-                }   else if(Head1.getValue()<Head2.getValue())
+                }
+                else if (Head1.getValue() < Head2.getValue())
                     Head1 = Head1.getNext();
                 else
-                Head2 = Head2.getNext();
+                    Head2 = Head2.getNext();
             }
             Console.WriteLine("\n Intersection of Linked List :: ");
             PrintSLL(sll.Head);
         }
 
-       
+
 
         public void ReverseInGroupsOfGivenSize(int k)
         {
@@ -364,16 +373,17 @@ namespace LinkedList
             Node n = Head.getNext();
             Node lastNode = null;
             int cnt = 1;
-            while (n!=null)
+            while (n != null)
             {
-                 if (cnt == k)
+                if (cnt == k)
                 {
                     if (master == null)
                     {
                         master = worker;
                         lastNode = master.Head;
                     }
-                    else {
+                    else
+                    {
                         lastNode.setNext(worker.Head);
                     }
                     cnt = 1;
@@ -382,7 +392,8 @@ namespace LinkedList
                     while (lastNode.getNext() != null)
                         lastNode = lastNode.getNext();
                 }
-                else { 
+                else
+                {
                     worker.InsertToSLLAtBegin(n.getValue());
                     cnt++;
                 }
@@ -394,7 +405,8 @@ namespace LinkedList
 
         }
 
-        public void DeleteSmallerNodesOnLeft() {
+        public void DeleteSmallerNodesOnLeft()
+        {
             if (Head == null)
                 Console.WriteLine("LinkedList is Empty !!");
 
@@ -402,7 +414,7 @@ namespace LinkedList
             Node prev = null;
             Node next = cur.getNext();
 
-            while (next !=null)
+            while (next != null)
             {
                 if (cur.getValue() < next.getValue())
                 {
@@ -411,7 +423,8 @@ namespace LinkedList
                     else
                         prev.setNext(next);
                 }
-                else {
+                else
+                {
                     prev = cur;
                 }
                 cur = next;
@@ -420,6 +433,63 @@ namespace LinkedList
 
             Console.WriteLine("\n");
             PrintSLL(Head);
+
+        }
+
+        public void AddTwoReversedNumbers() {
+            SinglyLinkedList sll1 = new SinglyLinkedList();
+            sll1.InsertToSLLAtEnd(7);
+            sll1.InsertToSLLAtEnd(5);
+            sll1.InsertToSLLAtEnd(9);
+            sll1.InsertToSLLAtEnd(4);
+            sll1.InsertToSLLAtEnd(6);
+
+            SinglyLinkedList sll2 = new SinglyLinkedList();
+            sll2.InsertToSLLAtEnd(8);
+            sll2.InsertToSLLAtEnd(4);
+            
+            AddTwoReversedNumbers(sll1, sll2);
+
+        }
+
+        private void AddTwoReversedNumbers(SinglyLinkedList sll1, SinglyLinkedList sll2)
+        {
+
+            Node n1 = sll1.Head;
+            Node n2 = sll2.Head;
+            SinglyLinkedList resultList = new SinglyLinkedList();
+            int carryOver = 0;
+            while (n1 != null && n2 != null)
+            {
+                int sum = n1.getValue() + n2.getValue() + carryOver;
+                carryOver = sum / 10;
+                sum = sum % 10;
+                if (resultList.Head == null)
+                    resultList.Head = new Node(sum);
+                else resultList.InsertToSLLAtEnd(sum);
+                n1 = n1.getNext();
+                n2 = n2.getNext();
+            }
+            while (n1 != null)
+            {
+                int sum = n1.getValue() + carryOver;
+                carryOver = sum / 10;
+                sum = sum % 10;
+                resultList.InsertToSLLAtEnd(sum);
+              
+                n1 = n1.getNext();
+            }
+            while (n2 != null)
+            {
+                int sum =  n2.getValue() + carryOver;
+                carryOver = sum / 10;
+                sum = sum % 10;
+                resultList.InsertToSLLAtEnd(sum);
+                n2 = n2.getNext();
+            
+            }
+            Console.WriteLine("\nSummed LinkedList is :: ");
+            PrintSLL(resultList.Head);
 
         }
 

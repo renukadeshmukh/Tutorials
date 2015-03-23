@@ -37,7 +37,9 @@ namespace LinkedList
 
            // sll.ReverseInGroupsOfGivenSize(3);
 
-            sll.DeleteSmallerNodesOnLeft();
+            //sll.DeleteSmallerNodesOnLeft();
+
+            sll.AddTwoReversedNumbers();
             Console.ReadKey();
 
         }
