@@ -434,7 +434,8 @@ namespace LinkedList
 
         }
 
-        public void AddTwoReversedNumbers() {
+        public void AddTwoReversedNumbers()
+        {
             SinglyLinkedList sll1 = new SinglyLinkedList();
             sll1.InsertToSLLAtEnd(7);
             sll1.InsertToSLLAtEnd(5);
@@ -445,7 +446,7 @@ namespace LinkedList
             SinglyLinkedList sll2 = new SinglyLinkedList();
             sll2.InsertToSLLAtEnd(8);
             sll2.InsertToSLLAtEnd(4);
-            
+
             AddTwoReversedNumbers(sll1, sll2);
 
         }
@@ -474,24 +475,25 @@ namespace LinkedList
                 carryOver = sum / 10;
                 sum = sum % 10;
                 resultList.InsertToSLLAtEnd(sum);
-              
+
                 n1 = n1.getNext();
             }
             while (n2 != null)
             {
-                int sum =  n2.getValue() + carryOver;
+                int sum = n2.getValue() + carryOver;
                 carryOver = sum / 10;
                 sum = sum % 10;
                 resultList.InsertToSLLAtEnd(sum);
                 n2 = n2.getNext();
-            
+
             }
             Console.WriteLine("\nSummed LinkedList is :: ");
             PrintSLL(resultList.Head);
 
         }
 
-        public void UnionAndIntersection(){
+        public void UnionAndIntersection()
+        {
             SinglyLinkedList sll1 = new SinglyLinkedList();
             sll1.InsertToSLLAtEnd(10);
             sll1.InsertToSLLAtEnd(15);
@@ -512,21 +514,21 @@ namespace LinkedList
 
         }
 
-        public void UnionAndIntersection(SinglyLinkedList sll1 , SinglyLinkedList sll2)
+        private void UnionAndIntersection(SinglyLinkedList sll1, SinglyLinkedList sll2)
         {
             Node n1 = sll1.Head;
             Node n2 = sll2.Head;
             SinglyLinkedList unionList = new SinglyLinkedList();
             SinglyLinkedList intersectionList = new SinglyLinkedList();
             List<int> positions = new List<int>();
-            
-            while (n1!=null )
+
+            while (n1 != null)
             {
-                int val=n1.getValue();
+                int val = n1.getValue();
                 unionList.InsertToSLLAtEnd(val);
 
                 int pos = 0;
-                while (n2!=null)
+                while (n2 != null)
                 {
                     pos++;
                     if (val == n2.getValue())
@@ -537,17 +539,18 @@ namespace LinkedList
                     }
                     n2 = n2.getNext();
                 }
-                
+
                 n2 = sll2.Head;
                 n1 = n1.getNext();
             }
 
             n2 = sll2.Head;
             int pos1 = 0;
-            while (n2!=null)
+            while (n2 != null)
             {
                 pos1++;
-                if (!positions.Contains(pos1)) {
+                if (!positions.Contains(pos1))
+                {
                     unionList.InsertToSLLAtEnd(n2.getValue());
                 }
                 n2 = n2.getNext();
@@ -559,6 +562,83 @@ namespace LinkedList
             Console.WriteLine("\n Intersection List :: ");
             PrintSLL(intersectionList.Head);
 
+        }
+
+        public void AddTwoNumbers()
+        {
+            SinglyLinkedList sll1 = new SinglyLinkedList();
+            sll1.InsertToSLLAtEnd(7);
+            sll1.InsertToSLLAtEnd(5);
+            sll1.InsertToSLLAtEnd(9);
+            sll1.InsertToSLLAtEnd(4);
+            sll1.InsertToSLLAtEnd(6);
+
+            SinglyLinkedList sll2 = new SinglyLinkedList();
+            sll2.InsertToSLLAtEnd(8);
+            sll2.InsertToSLLAtEnd(4);
+            //sll2.InsertToSLLAtEnd(2);
+
+            AddTwoNumbers(sll1, sll2);
+        }
+
+        public void AddTwoNumbers(SinglyLinkedList sll1, SinglyLinkedList sll2)
+        {
+            SinglyLinkedList resultList = new SinglyLinkedList();
+
+            Stack<int> num1Stack = new Stack<int>();
+            num1Stack.Push(-1);
+            Stack<int> num2Stack = new Stack<int>();
+            num2Stack.Push(-1);
+            Node n1 = sll1.Head;
+            Node n2 = sll2.Head;
+
+            while (n1 != null)
+            {
+                num1Stack.Push(n1.getValue());
+                n1 = n1.getNext();
+            }
+
+            while (n2 != null)
+            {
+                num2Stack.Push(n2.getValue());
+                n2 = n2.getNext();
+            }
+
+            int carryOver = 0;
+
+            while (num1Stack.Peek() != -1 && num2Stack.Peek() != -1)
+            {
+                int sum = num1Stack.Pop() + num2Stack.Pop() + carryOver;
+                carryOver = sum / 10;
+                sum = sum % 10;
+                resultList.InsertToSLLAtBegin(sum);
+            }
+
+            if (num1Stack.Peek() != -1)
+            {
+
+                while (num1Stack.Peek() != -1)
+                {
+                    int sum = num1Stack.Pop() + carryOver;
+                    carryOver = sum / 10;
+                    sum = sum % 10;
+                    resultList.InsertToSLLAtBegin(sum);
+                }
+            }
+            else if (num2Stack.Peek() != -1)
+            {
+                while (num2Stack.Peek() != -1)
+                {
+                    int sum = num2Stack.Pop() + carryOver;
+                    carryOver = sum / 10;
+                    sum = sum % 10;
+                    resultList.InsertToSLLAtBegin(sum);
+                }
+            }
+            if (carryOver != 0)
+                resultList.InsertToSLLAtBegin(carryOver);
+            Console.WriteLine("\nSum is :: ");
+            PrintSLL(resultList.Head);
         }
     }
 }

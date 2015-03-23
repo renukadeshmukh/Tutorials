@@ -39,7 +39,8 @@ namespace LinkedList
 
             //sll.DeleteSmallerNodesOnLeft();
 
-            sll.UnionAndIntersection();
+            //sll.UnionAndIntersection();
+            sll.AddTwoNumbers();
             Console.ReadKey();
 
         }
