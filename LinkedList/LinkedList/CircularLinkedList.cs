@@ -15,19 +15,18 @@ namespace LinkedList
             if (Head == null)
             {
                 Head = new Node(val);
-                Head.setNext(new Node(-1));
-                Head.getNext().setNext(Head);
+                Head.setNext(Head);
             }
             else
             {
                 Node cur = Head;
-                while (cur.getNext().getValue() != -1) {
+                while (cur.getNext() != Head)
+                {
                     cur = cur.getNext();
                 }
-                Node next = cur.getNext();
                 cur.setNext(new Node(val));
                 cur = cur.getNext();
-                cur.setNext(next);
+                cur.setNext(Head);
             }
             PrintCLL(Head);
         }
@@ -36,7 +35,7 @@ namespace LinkedList
         {
             for (int i = 0; i < 5; i++)
             {
-                InsertInCLLAtEnd(i + 1);   
+                InsertInCLLAtEnd(i + 1);
             }
 
             PrintCLL(Head);
@@ -51,12 +50,15 @@ namespace LinkedList
             }
 
             Node n = Head;
-            Console.Write("\nCLL Is : ");
-            while (n.getValue()!=-1 )
+            Console.Write("\nCLL Is : {0}-->", n.getValue());
+
+            n = n.getNext();
+            while (n != Head)
             {
                 Console.Write("{0}-->", n.getValue());
                 n = n.getNext();
             }
+
             Console.Write(Head.getValue());
         }
     }
