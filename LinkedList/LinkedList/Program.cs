@@ -10,6 +10,20 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
+            //TrySLL();
+            TryCLL();
+            Console.ReadKey();
+
+        }
+
+        public static void TryCLL()
+        {
+            CircularLinkedList cll = new CircularLinkedList();
+            cll.CreateCLL();
+        }
+
+        public static void TrySLL()
+        {
             SinglyLinkedList sll = new SinglyLinkedList();
             sll.CreateSLL();
 
@@ -35,14 +49,13 @@ namespace LinkedList
 
             //sll.IntersectionOfSortedLinkedList();
 
-           // sll.ReverseInGroupsOfGivenSize(3);
+            // sll.ReverseInGroupsOfGivenSize(3);
 
             //sll.DeleteSmallerNodesOnLeft();
 
             //sll.UnionAndIntersection();
             sll.AddTwoNumbers();
-            Console.ReadKey();
-
+            
         }
     }
 }
