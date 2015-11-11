@@ -27,6 +27,64 @@ namespace TreeTutorials
             #endregion
         }
 
+        public void PreorderTraversal()
+        {
+            PreorderTraversal(RootCompleteTree);
+            PreorderTraversal(RootFullTree);
+            PreorderTraversal(RootTree);
+        }
+
+        public void PreorderTraversal(Node<int> root)
+        {
+            if (root == null)
+                return;
+            else
+            {
+                Console.WriteLine(root.Value);
+                PreorderTraversal(root.Left);
+                PreorderTraversal(root.Right);
+            }
+        }
+
+        public void InorderTraversal()
+        {
+            InorderTraversal(RootCompleteTree);
+            InorderTraversal(RootFullTree);
+            InorderTraversal(RootTree);
+        }
+
+        public void InorderTraversal(Node<int> root)
+        {
+
+            if (root == null)
+                return;
+            else
+            {
+                InorderTraversal(root.Left);
+                Console.WriteLine(root.Value);
+                InorderTraversal(root.Right);
+            }
+        }
+
+        public void PostorderTraversal()
+        {
+            PostorderTraversal(RootCompleteTree);
+            PostorderTraversal(RootFullTree);
+            PostorderTraversal(RootTree);
+        }
+
+        public void PostorderTraversal(Node<int> root)
+        {
+            if (root == null)
+                return;
+            else
+            {
+                PostorderTraversal(root.Left);
+                PostorderTraversal(root.Right);
+                Console.WriteLine(root.Value);
+            }
+        }
+
         public Node<int> CreateCompleteBinaryTree()
         {
             Node<int> root = new Node<int>(4);
@@ -62,14 +120,15 @@ namespace TreeTutorials
             root.Left.Left = new Node<int>(40);
             root.Left.Right = new Node<int>(50);
             root.Left.Left.Left = new Node<int>(8);
-            //root.Left.Left.Right = new Node<int>(7);
-            root.Left.Right.Left = new Node<int>(9);
+            root.Left.Left.Right = new Node<int>(7);
+            //root.Left.Right.Left = new Node<int>(9);
 
             root.Right = new Node<int>(30);
             root.Right.Left = new Node<int>(100);
-            //root.Right.Right = new Node<int>(40);
+            root.Right.Right = new Node<int>(40);
 
             return root;
         }
+
     }
 }
