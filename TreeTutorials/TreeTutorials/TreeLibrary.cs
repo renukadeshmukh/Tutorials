@@ -69,5 +69,22 @@ namespace TreeTutorials
             }
             return root;
         }
+
+        /*
+         * Given a binary tree, print out all of its root-to-leaf paths one per line
+         */
+        public void PrintRootToLeafPaths(Node<int> root, string path)
+        {
+            if (root.Left == null && root.Right == null)
+            {
+                Console.WriteLine(path.Trim()+ " " + root.Value);
+            }
+            else
+            {
+                path = path +  " " + root.Value;
+                PrintRootToLeafPaths(root.Left, path);
+                PrintRootToLeafPaths(root.Right, path);
+            }
+        }
     }
 }
