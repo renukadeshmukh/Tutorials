@@ -85,6 +85,31 @@ namespace TreeTutorials
             }
         }
 
+        /*
+         * Level order traversal of a tree is breadth first traversal for the tree
+         */
+        public void LevelorderTraversal(Node<int> root)
+        {
+            if (root == null)
+                return;
+            Queue<Node<int>> queue = new Queue<Node<int>>();
+            queue.Enqueue(root);
+
+            while(queue.Count > 0)
+            {
+                Node<int> elem = queue.Dequeue();
+
+                if (elem != null)
+                {
+                    Console.Write(" " + elem.Value);
+                    queue.Enqueue(elem.Left);
+                    queue.Enqueue(elem.Right);
+                    
+                }
+                
+            }
+        }
+
         public Node<int> CreateCompleteBinaryTree()
         {
             Node<int> root = new Node<int>(4);

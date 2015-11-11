@@ -13,8 +13,8 @@ namespace TreeTutorials
             TreeTraversal tt = new TreeTraversal();
             TreeLibrary tl = new TreeLibrary();
             Node<int> root = tt.CreateBinaryTree();
-            
-            tl.PrintRootToLeafPaths(root, string.Empty);
+
+            tt.LevelorderTraversal(root);
             Console.ReadKey();
         }
     }
