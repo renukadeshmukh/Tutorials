@@ -87,7 +87,16 @@ namespace TreeTutorials
             }
         }
 
-
-        
+        /*
+         * A node is a leaf node if both left and right child nodes of it are NULL
+         */
+        public int NumberOfLeafNodes(Node<int> root)
+        {
+            if (root == null)
+                return 0;
+            else if (root.Left == null && root.Right == null)
+                return 1;
+            else return (NumberOfLeafNodes(root.Left) + NumberOfLeafNodes(root.Right));
+        }
     }
 }

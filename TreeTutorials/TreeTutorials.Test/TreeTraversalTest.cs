@@ -65,5 +65,14 @@ namespace TreeTutorials.Test
             //Console.WriteLine("Size of tree is ::" + size);
             Assert.AreEqual(4, height);
         }
+
+        [TestMethod]
+        public void NumOfLeafNodesTest()
+        {
+            Node<int> root = tt.CreateBinaryTree();
+            int num = tl.NumberOfLeafNodes(root);
+            //Console.WriteLine("Size of tree is ::" + size);
+            Assert.AreEqual(5, num);
+        }
     }
 }
