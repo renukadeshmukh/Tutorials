@@ -30,7 +30,9 @@ namespace TreeTutorials
 
         public int MaxHeightOfTree(Node<int> root)
         {
-
+            if(root == null)
+                return 0;
+            return 1 + Math.Max(MaxHeightOfTree(root.Left), MaxHeightOfTree(root.Right));
         }
     }
 }

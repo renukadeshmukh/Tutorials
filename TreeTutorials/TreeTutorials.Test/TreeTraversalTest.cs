@@ -56,5 +56,14 @@ namespace TreeTutorials.Test
             //Console.WriteLine("Size of tree is ::" + size);
             Assert.AreEqual(false, equal);
         }
+
+        [TestMethod]
+        public void MaxHeightofTreeTest()
+        {
+            Node<int> root = tt.CreateBinaryTree();
+            int height = tl.MaxHeightOfTree(root);
+            //Console.WriteLine("Size of tree is ::" + size);
+            Assert.AreEqual(4, height);
+        }
     }
 }
