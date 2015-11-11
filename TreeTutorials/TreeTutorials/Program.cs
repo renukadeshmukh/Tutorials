@@ -13,8 +13,12 @@ namespace TreeTutorials
             TreeTraversal tt = new TreeTraversal();
             TreeLibrary tl = new TreeLibrary();
             Node<int> root = tt.CreateBinaryTree();
-            int size = tl.SizeOfTree(root);
-            Console.WriteLine("Size of tree is ::" + size);
+            Console.WriteLine("Inorder Tree Traversal :: ");
+            tt.InorderTraversal(root);
+
+            tl.MirrorATree(root);
+            Console.WriteLine("Inorder Mirror Tree Traversal :: ");
+            tt.InorderTraversal(root);
             Console.ReadKey();
         }
     }
