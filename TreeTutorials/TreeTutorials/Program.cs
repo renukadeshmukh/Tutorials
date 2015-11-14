@@ -14,7 +14,8 @@ namespace TreeTutorials
             TreeLibrary tl = new TreeLibrary();
             Node<int> root = tt.CreateBinaryTree();
 
-            tt.LevelorderTraversal(root);
+            tt.LevelorderTraversalNewLine(root);
+            tt.SpiralTraversal(root);
             Console.ReadKey();
         }
     }

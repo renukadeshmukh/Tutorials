@@ -110,6 +110,68 @@ namespace TreeTutorials
             }
         }
 
+        public void LevelorderTraversalNewLine(Node<int> root)
+        {
+            if (root == null)
+                return;
+            Queue<Node<int>> queue = new Queue<Node<int>>();
+            queue.Enqueue(root);
+            queue.Enqueue(null);
+            while (queue.Count > 1)
+            {
+                Node<int> elem = queue.Dequeue();
+                if(elem == null){
+                    queue.Enqueue(null);
+                    Console.WriteLine();
+                }
+                if (elem != null)
+                {
+                    Console.Write(" " + elem.Value);
+                    if(elem.Left != null)
+                    queue.Enqueue(elem.Left);
+                    if (elem.Right != null)
+                    queue.Enqueue(elem.Right);
+
+                }
+
+            }
+        }
+
+        public void SpiralTraversal(Node<int> root)
+        {
+            if (root == null)
+                return;
+            Stack<Node<int>> stack1 = new Stack<Node<int>>();
+            Stack<Node<int>> stack2 = new Stack<Node<int>>();
+            stack1.Push(root);
+            Console.WriteLine();
+            while (stack1.Count > 0 || stack2.Count > 0)
+            {
+                Console.WriteLine();
+                while (stack1.Count > 0)
+                {
+                    Node<int> node = stack1.Pop();
+                    if (node != null)
+                    {
+                        Console.Write(" " + node.Value);
+                        stack2.Push(node.Left);
+                        stack2.Push(node.Right); 
+                    }
+                }
+                Console.WriteLine();
+                while (stack2.Count > 0)
+                {
+                    Node<int> node = stack2.Pop();
+                    if (node != null)
+                    {
+                        Console.Write(" " + node.Value);
+                        stack1.Push(node.Right);
+                        stack1.Push(node.Left);
+                    }
+                }
+            }
+        }
+
         public Node<int> CreateCompleteBinaryTree()
         {
             Node<int> root = new Node<int>(4);
@@ -146,7 +208,7 @@ namespace TreeTutorials
             root.Left.Right = new Node<int>(50);
             root.Left.Left.Left = new Node<int>(8);
             root.Left.Left.Right = new Node<int>(7);
-            //root.Left.Right.Left = new Node<int>(9);
+            root.Left.Right.Left = new Node<int>(9);
 
             root.Right = new Node<int>(30);
             root.Right.Left = new Node<int>(100);
