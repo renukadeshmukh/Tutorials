@@ -161,5 +161,20 @@ namespace TreeTutorials
             int max = Math.Max( left , right); 
             return max = Math.Max(max , MaxHeightOfTree(root.Left) + MaxHeightOfTree(root.Right) +1 );
         }
+
+        /**/
+        public bool CheckBalancedBinaryTree(Node<int> root)
+        {
+            if (root == null)
+                return true;
+            int leftHt = MaxHeightOfTree(root.Left);
+            int rightHt = MaxHeightOfTree(root.Right);
+            int diff = leftHt - rightHt;
+            if (diff > -2 && diff < 2)
+            {
+                return CheckBalancedBinaryTree(root.Left) && CheckBalancedBinaryTree(root.Right);
+            }
+            else return false;
+        }
     }
 }
