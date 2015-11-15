@@ -54,7 +54,7 @@ namespace TreeTutorials.Test
             Node<int> root2 = tt.CreateFullBinaryTree();
             bool equal = tl.AreTreesEqual(root1, root2);
             //Console.WriteLine("Size of tree is ::" + size);
-            Assert.AreEqual(false, equal);
+            Assert.AreEqual(true, equal);
         }
 
         [TestMethod]
@@ -73,6 +73,39 @@ namespace TreeTutorials.Test
             int num = tl.NumberOfLeafNodes(root);
             //Console.WriteLine("Size of tree is ::" + size);
             Assert.AreEqual(5, num);
+        }
+
+        [TestMethod]
+        public void ChildrenCheckSumTest()
+        {
+            Node<int> root = new Node<int>(10);
+            root.Left = new Node<int>(8);
+            root.Left.Left = new Node<int>(3);
+            root.Left.Right = new Node<int>(5);
+            
+            root.Right = new Node<int>(2);
+            root.Right.Left = new Node<int>(2);
+
+            bool check = tl.CheckChildrenSumProperty(root);
+            Assert.IsTrue(check);
+            
+        }
+
+        [TestMethod]
+        public void ChildrenCheckSumFailTest()
+        {
+            Node<int> root = new Node<int>(10);
+            root.Left = new Node<int>(8);
+            root.Left.Left = new Node<int>(3);
+            root.Left.Right = new Node<int>(5);
+
+            root.Right = new Node<int>(2);
+            root.Right.Left = new Node<int>(2);
+            root.Right.Right = new Node<int>(2);
+
+            bool check = tl.CheckChildrenSumProperty(root);
+            Assert.IsFalse(check);
+
         }
     }
 }

@@ -41,9 +41,9 @@ namespace TreeTutorials
          */
         public int MaxHeightOfTree(Node<int> root)
         {
-            if(root == null)
+            if (root == null)
                 return 0;
-            else 
+            else
                 return 1 + Math.Max(MaxHeightOfTree(root.Left), MaxHeightOfTree(root.Right));
         }
 
@@ -77,11 +77,11 @@ namespace TreeTutorials
         {
             if (root.Left == null && root.Right == null)
             {
-                Console.WriteLine(path.Trim()+ " " + root.Value);
+                Console.WriteLine(path.Trim() + " " + root.Value);
             }
             else
             {
-                path = path +  " " + root.Value;
+                path = path + " " + root.Value;
                 PrintRootToLeafPaths(root.Left, path);
                 PrintRootToLeafPaths(root.Right, path);
             }
@@ -97,6 +97,55 @@ namespace TreeTutorials
             else if (root.Left == null && root.Right == null)
                 return 1;
             else return (NumberOfLeafNodes(root.Left) + NumberOfLeafNodes(root.Right));
+        }
+
+        public bool CheckChildrenSumProperty(Node<int> root)
+        {
+            if (root == null || (root.Left == null && root.Right == null))
+                return true;
+            int leftVal = root.Left == null ? 0 : root.Left.Value;
+            int rightVal = root.Right == null ? 0 : root.Right.Value;
+            if (root.Value == leftVal + rightVal)
+            {
+                return CheckChildrenSumProperty(root.Left) && CheckChildrenSumProperty(root.Right);
+            }
+            else
+                return false;
+        }
+
+        public void BalanceChildrenSumProperty(Node<int> root)
+        {
+            if (root == null || (root.Left == null && root.Right == null))
+                return;
+            BalanceChildrenSumProperty(root.Left);
+            BalanceChildrenSumProperty(root.Right);
+
+            int leftVal = root.Left == null ? 0 : root.Left.Value;
+            int rightVal = root.Right == null ? 0 : root.Right.Value;
+            int diff = root.Value - (leftVal + rightVal);
+            if (diff == 0)
+            {
+                return;
+            }
+            else if (diff < 0)
+            {
+                root.Value = root.Value - diff;
+            }
+            else
+            {
+                if (root.Left != null)
+                {
+                    root.Left.Value += diff;
+                    BalanceChildrenSumProperty(root.Left);
+                }
+                else
+                {
+                    root.Right.Value += diff;
+                    BalanceChildrenSumProperty(root.Right);
+                }
+
+            }
+
         }
     }
 }
