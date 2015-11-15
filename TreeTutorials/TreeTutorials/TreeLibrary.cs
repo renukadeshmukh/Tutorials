@@ -147,5 +147,19 @@ namespace TreeTutorials
             }
 
         }
+
+        /*
+         * The diameter of a tree (sometimes called the width) is the 
+         * number of nodes on the longest path between two leaves in the tree.
+         */
+        public int GetDiameterofBinaryTree(Node<int> root)
+        {
+            if (root == null)
+                return 0;
+            int left = GetDiameterofBinaryTree(root.Left);
+            int right = GetDiameterofBinaryTree(root.Right);
+            int max = Math.Max( left , right); 
+            return max = Math.Max(max , MaxHeightOfTree(root.Left) + MaxHeightOfTree(root.Right) +1 );
+        }
     }
 }
