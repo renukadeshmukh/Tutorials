@@ -13,20 +13,14 @@ namespace TreeTutorials
             TreeTraversal tt = new TreeTraversal();
             TreeLibrary tl = new TreeLibrary();
 
-            Node<int> root = new Node<int>(1);
-            root.Left = new Node<int>(2);
-            root.Left.Left = new Node<int>(4);
-            root.Left.Right = new Node<int>(5);
-            
-            root.Right = new Node<int>(3);
-            root.Right.Right = new Node<int>(8);
-            root.Right.Left = new Node<int>(8);
-            root.Right.Right.Right = new Node<int>(9);
-            
+            //A=1;B=2;C=3;D=4;E=5;F=6;
+            string inorder = "425163";
+            string preorder = "124536";
+            Node<int> root = null;
+            root = tl.BuildTreeFromInAndPre(inorder, preorder, root);
 
-            tt.LevelorderTraversalNewLine(root);
-            bool flag = tl.CheckBalancedBinaryTree(root);
-            Console.WriteLine("\n" + flag);
+            tt.InorderTraversal(root);
+           
             Console.ReadKey();
         }
     }

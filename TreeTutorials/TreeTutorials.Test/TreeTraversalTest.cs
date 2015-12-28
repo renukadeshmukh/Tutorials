@@ -107,5 +107,24 @@ namespace TreeTutorials.Test
             Assert.IsFalse(check);
 
         }
+
+        [TestMethod]
+        public void HasPathSumTest()
+        {
+            Node<int> root = new Node<int>(10);
+            root.Left = new Node<int>(8);
+            root.Left.Left = new Node<int>(3);
+            root.Left.Right = new Node<int>(5);
+
+            root.Right = new Node<int>(2);
+            root.Right.Left = new Node<int>(2);
+            
+            bool check = tl.HasPathSum(root, 21);
+            Assert.IsTrue(check);
+
+            check = tl.HasPathSum(root, 20);
+            Assert.IsFalse(check);
+
+        }
     }
 }

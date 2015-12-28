@@ -162,7 +162,12 @@ namespace TreeTutorials
             return max = Math.Max(max , MaxHeightOfTree(root.Left) + MaxHeightOfTree(root.Right) +1 );
         }
 
-        /**/
+        /*
+         * To check if a tree is height-balanced, get the height of left 
+         * and right subtrees. Return true if difference between heights is 
+         * not more than 1 and left and right subtrees are balanced, otherwise 
+         * return false.
+         */
         public bool CheckBalancedBinaryTree(Node<int> root)
         {
             if (root == null)
@@ -175,6 +180,76 @@ namespace TreeTutorials
                 return CheckBalancedBinaryTree(root.Left) && CheckBalancedBinaryTree(root.Right);
             }
             else return false;
+        }
+
+        private bool HasPathSum(Node<int> root, int sum, int calculatedSum)
+        {
+            if (root == null)
+            {
+                if (calculatedSum == sum)
+                    return true;
+                return false;
+            }
+            calculatedSum += root.Value;
+            return HasPathSum(root.Left, sum, calculatedSum) || HasPathSum(root.Right, sum, calculatedSum);
+        }
+
+        /*
+         * Given a binary tree and a number, return true if the tree has 
+         * a root-to-leaf path such that adding up all the values along 
+         * the path equals the given number. Return false if no such path 
+         * can be found.
+         */
+        public bool HasPathSum(Node<int> root, int sum)
+        {
+            if (root == null && sum == 0)
+                return true;
+            else
+                return HasPathSum(root, sum, 0);
+        }
+
+        public Node<int> BuildTreeFromInAndPre(string inorder, string preorder, Node<int> root)
+        {
+            if (preorder.Length > 0)
+            {
+                char n = preorder[0];
+                int node = Int32.Parse(n.ToString());
+                root = new Node<int>(node);
+                preorder = preorder.Substring(1);
+
+                string inleft = string.Empty, inright = string.Empty;
+                bool flag = false;
+                Dictionary<char, int> ignoreDict = new Dictionary<char, int>();
+                for (int i = 0; i < inorder.Length; i++)
+                {
+                    if (inorder[i] == n)
+                    {
+                        flag = true;
+                        continue;
+                    }
+
+                    if (flag == false)
+                    {
+                        inleft = string.Concat(inleft, inorder[i]);
+                        ignoreDict.Add(inorder[i], 0);
+                    }
+                    else
+                        inright = string.Concat(inright, inorder[i]);
+                    
+                }
+                string preleft = string.Empty, preright = string.Empty;
+                for (int i = 0; i < preorder.Length; i++)
+                {
+                    if(ignoreDict.ContainsKey(preorder[i]))
+                        preleft = string.Concat(preleft, preorder[i]);
+                    else
+                        preright = string.Concat(preright, preorder[i]);
+                }
+
+                root.Left = BuildTreeFromInAndPre(inleft, preleft, root.Left);
+                root.Right = BuildTreeFromInAndPre(inright, preright, root.Right);
+            }
+            return root;
         }
     }
 }
