@@ -13,15 +13,15 @@ namespace TreeTutorials
             TreeTraversal tt = new TreeTraversal();
             TreeLibrary tl = new TreeLibrary();
 
-            //A=1;B=2;C=3;D=4;E=5;F=6;
-            string inorder = "425163";
-            string preorder = "124536";
-            Node<int> root = null;
-            root = tl.BuildTreeFromInAndPre(inorder, preorder, root);
-            tt.InorderTraversal(root);
-            tl.DoubleTree(root);
-            tt.InorderTraversal(root);
-           
+
+            Node<int> root = new Node<int>(10);
+            root.Left = new Node<int>(7);
+            root.Right = new Node<int>(15);
+            root.Left.Left = new Node<int>(9);
+            root.Right.Left = new Node<int>(11);
+
+            bool res = tl.IsFoldable(root);
+            Console.WriteLine(  res);
             Console.ReadKey();
         }
     }

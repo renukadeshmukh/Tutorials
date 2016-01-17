@@ -268,5 +268,28 @@ namespace TreeTutorials
             }
             
         }
+
+        /*
+        A tree can be folded if left and right subtrees of the tree are structure wise mirror image 
+        of each other. An empty tree is considered as foldable.
+        */
+        public bool IsFoldable(Node<int> root)
+        {
+            if (root == null)
+                return true;
+            else return IsFoldable(root.Left, root.Right);
+        }
+
+        private bool IsFoldable(Node<int> root1, Node<int> root2)
+        {
+            if (root1 == null && root2 == null)
+                return true;
+            else if (root1 == null && root2 != null)
+                return false;
+            else if (root1 != null && root2 == null)
+                return false;
+            else return (IsFoldable(root1.Left, root2.Right) && IsFoldable(root1.Right, root2.Left));
+
+        }
     }
 }
