@@ -18,7 +18,8 @@ namespace TreeTutorials
             string preorder = "124536";
             Node<int> root = null;
             root = tl.BuildTreeFromInAndPre(inorder, preorder, root);
-
+            tt.InorderTraversal(root);
+            tl.DoubleTree(root);
             tt.InorderTraversal(root);
            
             Console.ReadKey();

@@ -251,5 +251,18 @@ namespace TreeTutorials
             }
             return root;
         }
+
+        public void DoubleTree(Node<int> root)
+        {
+            if (root != null)
+            {
+                Node<int> newNode = new Node<int>(root.Value);
+                newNode.Left = root.Left;
+                root.Left = newNode;
+                DoubleTree(root.Left.Left);
+                DoubleTree(root.Right);
+            }
+            
+        }
     }
 }
