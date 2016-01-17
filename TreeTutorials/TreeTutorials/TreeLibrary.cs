@@ -252,6 +252,10 @@ namespace TreeTutorials
             return root;
         }
 
+        /*
+         *To create Double tree of the given tree, create a new duplicate for each node, and insert 
+         *the duplicate as the left child of the original node
+         */
         public void DoubleTree(Node<int> root)
         {
             if (root != null)
